@@ -1,5 +1,5 @@
 #one stage docker, the size on build is 903 mb , while after applying mmultistage using distro less the size goes to 30mb 
-FROM golang:1.22 as base
+FROM golang:1.22
 
 WORKDIR /app
 
