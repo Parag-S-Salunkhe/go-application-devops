@@ -1,0 +1,18 @@
+#one stage docker, the size on build is 903 mb , while after applying mmultistage using distro less the size goes to 30mb 
+FROM golang:1.22 as base
+
+WORKDIR /app
+
+# copies depencies from go.mod , developer can add dependencies to this file
+COPY go.mod .
+
+RUN go mod download
+
+COPY . .
+
+# builds  a binary called "main", which will be used to run the application
+RUN go build -o main .
+
+EXPOSE 8080
+
+CMD [ "./main" ]
