@@ -5,11 +5,17 @@ My motive of this project is to do implementation of DevOps. its a simple statel
 In the guide every details are mentioned, also attached a doc where any questions related to project that I have faced-
 
 Check here for [Implentation Guide](./Implementation-Guide-Docs), Questions and Troubleshooting
+
 Part 1: Containerization using Docker & using Multi Stage Docker
+
 Part 2: Writing K8 Manifests for svc, deployment and ingress
+
 Part 3: Implementing ingress and Ingress controller (nginx)
+
 Part 4: Implenting using Helm
+
 Part 5: Github Actions to make CI
+
 Part 6: ArgoCD for GitOps
 
 Clone the base application- [Project](https://github.com/iam-veeramalla/go-web-app)
