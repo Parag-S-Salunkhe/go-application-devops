@@ -1,4 +1,4 @@
-## Part 1
+## Part 1 <a name="p1"></a>
 
 1. <ins> Why do we need a binary file? Can we run the application without the binary file? naming convention for binary file.</ins>
 
@@ -34,7 +34,7 @@ A distroless image is a minimal Docker image containing only the essential compo
 4.<ins> What are systems like 'init' , 'upstart' or 'systeminit' ?</ins>
 
 -------------------------------------------------------------------
-## Part 2
+## Part 2 <a name="p2"></a>
 
 1. <ins>What is EXTERNAL_IP & INTERNAL_IP  when we run command kubectl get nodes -o wide?</ins>
 
