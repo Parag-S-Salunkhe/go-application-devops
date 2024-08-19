@@ -55,3 +55,19 @@ Why are we not using LoadBalancer?
 **Cost and Complexity:** Using a LoadBalancer in a cloud environment like AWS can incur additional costs because it provisions an external load balancer in the cloud provider's infrastructure.
 
 **Environment Setup:** For development or testing environments, you might not need a LoadBalancer as NodePort or ClusterIP might suffice. NodePort can be easier and cheaper for environments where public access is not required or can be managed manually.
+
+-----------------------------------------------------------------------------------------------------
+## Part 3 <a name="p3"></a>
+
+
+-------------------------------------------------------------------------------------------------
+## Part 4 <a name="p4"></a>
+
+
+--------------------------------------------------------------------------------------------------
+## Part 5 <a name="p5"></a>
+
+
+------------------------------------------------------------------------------------------------
+## Part 6 <a name="p6"></a>
+
