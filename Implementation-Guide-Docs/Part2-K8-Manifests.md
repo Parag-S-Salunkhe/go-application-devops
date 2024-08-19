@@ -34,7 +34,7 @@ you will see the ips, choose any one (external ip), go to browser : ip:32002/cou
 
 ---------------------------------------------------------------------
 
-## Questionaire
+## Questionaire - [Answers](Qustions&Answers.md#p1)
 
 1. What is EXTERNAL_IP & INTERNAL_IP  when we run command kubectl get nodes -o wide?
 
