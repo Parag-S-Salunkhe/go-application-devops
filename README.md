@@ -25,7 +25,7 @@ Check here for [Implentation Guide](./Implementation-Guide-Docs), Questions and 
 
 [Part 6](./Implementation-Guide-Docs/Part6-ArgoCD-GitOps.md): ArgoCD for GitOps
 
-Note:Implementation ok EKS can become costly if you take time to finish the project, depending on region there are 2 or 3 managed instances of control plane running in the background, each day its will cost around 5$ - 10$ depending how many worker instances are spin up and instance type. 
+Note: Implementation on EKS can become costly if you take time to finish the project, depending on region there are 2 or 3 managed instances of control plane running in the background, each day its will cost around 5$ - 10$ depending how many worker instances are spin up and instance type. 
 
 # Go Web Application
 
