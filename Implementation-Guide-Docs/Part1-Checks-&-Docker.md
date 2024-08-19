@@ -45,3 +45,19 @@ To check if the container is running the application check on localhost again
 ----------------------------------------------------------
 
 # Questionaire
+
+1. Why do we need a binary file? Can we run the application without the binary file? naming convention for binary file.
+
+2. How is Docker Desktop helping ?
+
+3. What is a distroless image? How does it help? how do you choose a distroless image? 
+
+4. What are systems like 'init' , 'upstart' or 'systeminit' ?
+
+
+
+
+
+
+
+   
