@@ -11,7 +11,7 @@ on:
       - 'helm/**'
       - 'k8s/**'
       - 'README.md'
-      - 'Implemntation-Guide-Docs/**'
+      - 'Implementation-Guide-Docs/**'
 
 
 jobs:
