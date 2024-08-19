@@ -12,7 +12,7 @@ on:
       - 'k8s/**'
       - 'README.md'
       - 'Implemntation-Guide-Docs/**'
-      - 'Implementation-Guide-Docs.md'
+
 
 jobs:
 
