@@ -5,9 +5,6 @@
 
 
 
-
-
-
 # DevOps implementation on - Go Web Application
 
 My motive of this project is to do implementation of DevOps. its a simple stateless web application.
@@ -16,23 +13,24 @@ In the guide every details are mentioned, also attached a doc where any question
 
 Check here for [Implentation Guide](./Implementation-Guide-Docs), Questions and Troubleshooting
 
-Part 1: Containerization using Docker & using Multi Stage Docker
+[Part 1](./Implementation-Guide-Docs/Part1-Checks-&-Docker.md): Containerization using Docker & using Multi Stage Docker
 
-Part 2: Writing K8 Manifests for svc, deployment and ingress
+[Part 2](./Implementation-Guide-Docs/Part2-K8-Manifests.md): Writing K8 Manifests for svc, deployment and ingress
 
-Part 3: Implementing ingress and Ingress controller (nginx)
+[Part 3](./Implementation-Guide-Docs/Part3-Ingress&NginxController.md): Implementing ingress and Ingress controller (nginx)
 
-Part 4: Implenting using Helm
+[Part 4](./Implementation-Guide-Docs/Part4-Helm.md): Implenting using Helm
 
-Part 5: Github Actions to make CI
+[Part 5](./Implementation-Guide-Docs/Part5-GithubActions-CI.md): Github Actions to make CI
 
-Part 6: ArgoCD for GitOps
+[Part 6](./Implementation-Guide-Docs/Part6-ArgoCD-GitOps.md): ArgoCD for GitOps
 
-Clone the base application- [Project](https://github.com/iam-veeramalla/go-web-app)
 
 # Go Web Application
 
 This is a simple website written in Golang. It uses the `net/http` package to serve HTTP requests.
+
+Clone the base application- [Project](https://github.com/iam-veeramalla/go-web-app)
 
 ## Running the server
 
