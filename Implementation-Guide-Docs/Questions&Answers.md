@@ -1,4 +1,4 @@
-# Part 1
+## Part 1
 
 1. <ins> Why do we need a binary file? Can we run the application without the binary file? naming convention for binary file.</ins>
 
@@ -34,3 +34,24 @@ A distroless image is a minimal Docker image containing only the essential compo
 4.<ins> What are systems like 'init' , 'upstart' or 'systeminit' ?</ins>
 
 -------------------------------------------------------------------
+## Part 2
+
+1. <ins>What is EXTERNAL_IP & INTERNAL_IP  when we run command kubectl get nodes -o wide?</ins>
+
+**INTERNAL_IP:** This is the IP address of the node within the Kubernetes cluster's internal network. It's used for communication between nodes and pods within the same network. This IP address is usually private and is used for internal cluster operations.
+
+**EXTERNAL_IP:** This is the IP address that is accessible from outside the Kubernetes cluster, typically via the public internet. Not all nodes have an external IP, especially if the cluster is running in a private or on-premises environment. If present, the EXTERNAL_IP allows external services or users to access applications running on the node directly.
+
+2. <ins>What is differnce in ClusterIP , NodePort and LoadBalancer? Why are we not using LoadBalancer type?</ins>
+
+**ClusterIP:** This is the default service type in Kubernetes. It creates a virtual IP within the cluster that can be accessed only internally by other services or pods within the same cluster. It is useful for internal communication within the cluster.
+
+**NodePort:** This type exposes the service on a static port on each node's IP (the NodePort). This allows external access by sending a request to any node's IP address, using the specified port. It is more accessible than ClusterIP but is limited to the node's IP and port range.
+
+**LoadBalancer:** This type automatically creates an external load balancer in the cloud provider's infrastructure (such as AWS, GCP, or Azure). The service is exposed with a public IP, making it accessible from outside the cluster. It is ideal for exposing services directly to the internet.
+
+Why are we not using LoadBalancer?
+
+**Cost and Complexity:** Using a LoadBalancer in a cloud environment like AWS can incur additional costs because it provisions an external load balancer in the cloud provider's infrastructure.
+
+**Environment Setup:** For development or testing environments, you might not need a LoadBalancer as NodePort or ClusterIP might suffice. NodePort can be easier and cheaper for environments where public access is not required or can be managed manually.
