@@ -1,3 +1,9 @@
+![Static Badge](https://img.shields.io/badge/Docker-black?logo=Docker&logoColor=%232496ED) ![Static Badge](https://img.shields.io/badge/Kubernetes-black?logo=Kubernetes&logoColor=%23326CE5)
+![Static Badge](https://img.shields.io/badge/EKS-black?logo=Amazon%20EKS&logoColor=%23FF9900) ![Static Badge](https://img.shields.io/badge/Helm-white?logo=helm&logoColor=%230F1689)
+![Static Badge](https://img.shields.io/badge/Nginx-black?logo=Nginx&logoColor=%23009639) ![Static Badge](https://img.shields.io/badge/Github%20Actions-black?logo=githubactions&logoColor=%232088FF)
+![Static Badge](https://img.shields.io/badge/Argo-black?logo=argo&logoColor=%23EF7B4D)
+
+
 
 
 
