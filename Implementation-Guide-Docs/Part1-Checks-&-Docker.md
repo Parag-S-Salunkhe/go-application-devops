@@ -27,7 +27,7 @@ Docker Desktop manages Docker Daemon and sometimes there are problems related to
 
 **Build the docker image** 
 ```shell
-docker build -t dockerhub_username/app-repo-name:tag  # example parag2608/go-web-app:v1
+docker build -t dockerhub_username/app-repo-name:tag .  # example parag2608/go-web-app:v1
 ```
 push it to docker hub using docker desktop or cli. for test purpose to show the impact of not doing multi stage docker here is the test file [Dokerfile](https://github.com/Parag-S-Salunkhe/go-application-devops/blob/main/Docker-Test-file/docker-one-stage-only)
 build the test docker file to see the differences in images. 
