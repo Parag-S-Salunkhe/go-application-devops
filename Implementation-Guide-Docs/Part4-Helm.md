@@ -23,7 +23,14 @@ getting all services down
 helm unistall 
 ```
 ---------------------------------------------------------------------------------------------------
-## Questionaire 
+## Questions - [Answers](Questions&Answers.md#p4)
+
+1. What is Helm, and how does it help with Kubernetes deployments?
+2. How do Helm charts handle versioning, and how can we manage different environments (e.g., dev, prod) using the same chart?
+3. What are some common challenges or pitfalls to watch out for when using Helm in production environments?
+4. How do Helm rollbacks work, and are there any limitations or risks associated with them?
+
+   
 
 
 
