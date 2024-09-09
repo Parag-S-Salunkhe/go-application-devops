@@ -13,6 +13,9 @@ helm install <release-name> <chart-directory>
 kubectl get all
 ```
 
+we make a change to deployment file as well. you can access the previous commits to see that the tage for conatiner was static/hardcoded. We use Jinja2 tempelating, we update the values yaml file, and 
+then deployment file will access the container tag from values yaml file , where our tag for container gets updated on successful ci cd and the latest container is pushed to docker hub.
+
 all the manifest are deployed and app is also running.
 
 getting all services down
