@@ -59,7 +59,39 @@ Why are we not using LoadBalancer?
 -----------------------------------------------------------------------------------------------------
 ## Part 3 <a name="p3"></a>
 
+1. How does SSL/TLS termination work with an Ingress Controller, and can I configure it for different services?
+ SSL/TLS termination with an Ingress Controller allows the controller to handle HTTPS traffic by decrypting it before passing it to the backend services. You configure SSL termination by specifying TLS certificates in the Ingress manifest.
+ Multiple services can have separate SSL configurations by defining different hostnames and associating each with its own TLS certificate within the same Ingress resource. This allows for secure communication without exposing certificates directly to the services.
 
+2. What are the best practices for scaling an Ingress Controller in a large Kubernetes deployment?
+Best practices for scaling an Ingress Controller include:
+- Deploying the Ingress Controller as a DaemonSet to ensure it runs on every node and scales automatically with the cluster.
+- Using Horizontal Pod Autoscalers (HPA) to scale the number of Ingress Controller replicas based on CPU or memory usage.
+- Distributing traffic across multiple Ingress Controllers to avoid overloading a single controller.
+- Configuring resource limits and requests appropriately to prevent bottlenecks.
+- Utilizing advanced caching mechanisms and optimizing timeouts to handle high traffic.
+
+3. How do readiness and liveness probes interact with Ingress Controllers in Kubernetes?
+Readiness probes help ensure that a Pod is ready to receive traffic. An Ingress Controller will only route traffic to Pods that have passed their readiness checks. Liveness probes ensure that a Pod is healthy and operational.
+If a liveness probe fails, Kubernetes restarts the Pod. Ingress Controllers rely on these probes to decide which Pods to route traffic to, ensuring that only healthy and ready Pods receive requests.
+
+4. What are some common performance bottlenecks when using Ingress Controllers in production?
+Common performance bottlenecks with Ingress Controllers include:
+- Overloaded Ingress Controller Pods due to insufficient resources or too few replicas.
+- Inefficient routing rules or complex regex rules that slow down request processing.
+- SSL/TLS termination overhead if not optimized.
+- Limited network bandwidth or high latency between nodes and the Ingress Controller.
+- Lack of caching or improper timeouts leading to increased load on backend services.
+
+5. How do I secure my Ingress resources and Ingress Controllers against potential vulnerabilities or attacks?
+To secure Ingress resources and Ingress Controllers:
+- Use TLS/SSL certificates for HTTPS communication and enable strong cipher suites.
+- Implement Web Application Firewall (WAF) rules to filter malicious traffic.
+- Regularly update the Ingress Controller to patch security vulnerabilities.
+- Limit access by using network policies to control which Pods or services can interact with the Ingress Controller.
+- Use rate limiting and DDoS protection mechanisms to safeguard against traffic spikes.
+- Ensure proper RBAC policies to prevent unauthorized changes to Ingress resources.
+- 
 -------------------------------------------------------------------------------------------------
 ## Part 4 <a name="p4"></a>
 
