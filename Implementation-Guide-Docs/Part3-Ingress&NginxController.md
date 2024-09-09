@@ -33,7 +33,7 @@ now you can access the application on the path 'go-web-app.local/home'
 
 ----------------------------------------------------------------------------
 
-Questions - [Answers](Questions&Answers.md#p3)
+## Questions - [Answers](Questions&Answers.md#p3)
 
 1. How does SSL/TLS termination work with an Ingress Controller, and can I configure it for different services?
 2. What are the best practices for scaling an Ingress Controller in a large Kubernetes deployment?
