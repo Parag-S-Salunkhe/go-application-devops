@@ -29,6 +29,7 @@ helm unistall
 2. How do Helm charts handle versioning, and how can we manage different environments (e.g., dev, prod) using the same chart?
 3. What are some common challenges or pitfalls to watch out for when using Helm in production environments?
 4. How do Helm rollbacks work, and are there any limitations or risks associated with them?
+5. Why would you use helm for rollback if you have github?
 
    
 
