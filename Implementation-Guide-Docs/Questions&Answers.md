@@ -95,6 +95,22 @@ To secure Ingress resources and Ingress Controllers:
 -------------------------------------------------------------------------------------------------
 ## Part 4 <a name="p4"></a>
 
+1.<ins> What is Helm, and how does it help with Kubernetes deployments?</ins>
+Helm is a package manager for Kubernetes that simplifies the deployment, management, and scaling of applications. It uses "charts," which are packages of pre-configured Kubernetes resources. 
+Helm helps by providing a consistent way to deploy applications, manage configuration through parameterized values files, and handle updates and rollbacks. It also offers templating features that make it easier to manage complex Kubernetes configurations.
+
+2. <ins>How do Helm charts handle versioning, and how can we manage different environments (e.g., dev, prod) using the same chart?</ins>
+Helm charts handle versioning through the Chart.yaml file, where you can specify the chart version. For managing different environments,
+Helm allows you to use values files (values.yaml) to provide environment-specific configurations. You can create separate values files for each environment (e.g., values-dev.yaml, values-prod.yaml) and specify the appropriate file during deployment using the -f flag.
+
+4. <ins>What are some common challenges or pitfalls to watch out for when using Helm in production environments?</ins>
+Common challenges include managing chart dependencies, ensuring consistent values across environments, and dealing with complex templating issues.
+Additionally, Helm’s release management can be complex, especially with large-scale deployments.
+It’s important to thoroughly test Helm charts in staging environments before deploying to production and to keep Helm and its dependencies updated to mitigate security vulnerabilities.
+
+6. <ins>How do Helm rollbacks work, and are there any limitations or risks associated with them?</ins>
+Helm rollbacks allow you to revert to a previous release version if the current deployment has issues. This is done by tracking the release history and using the helm rollback command.
+Limitations include the potential for incomplete rollbacks if resources have changed significantly between versions. Rollbacks may not always fully revert changes in custom resources or external dependencies, so thorough testing is essential
 
 --------------------------------------------------------------------------------------------------
 ## Part 5 <a name="p5"></a>
