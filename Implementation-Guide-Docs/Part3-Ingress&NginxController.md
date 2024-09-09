@@ -30,3 +30,13 @@ sudo vim etc/hosts # add the ip here
 ```
 
 now you can access the application on the path 'go-web-app.local/home'
+
+----------------------------------------------------------------------------
+
+Questions - [Answers](Questions&Answers.md#p3)
+
+1. How does SSL/TLS termination work with an Ingress Controller, and can I configure it for different services?
+2. What are the best practices for scaling an Ingress Controller in a large Kubernetes deployment?
+3. How do readiness and liveness probes interact with Ingress Controllers in Kubernetes?
+4. What are some common performance bottlenecks when using Ingress Controllers in production?
+5. How do I secure my Ingress resources and Ingress Controllers against potential vulnerabilities or attacks?
