@@ -91,7 +91,7 @@ To secure Ingress resources and Ingress Controllers:
 - Limit access by using network policies to control which Pods or services can interact with the Ingress Controller.
 - Use rate limiting and DDoS protection mechanisms to safeguard against traffic spikes.
 - Ensure proper RBAC policies to prevent unauthorized changes to Ingress resources.
-- 
+
 -------------------------------------------------------------------------------------------------
 ## Part 4 <a name="p4"></a>
 
