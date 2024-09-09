@@ -50,7 +50,7 @@ A distroless image is a minimal Docker image containing only the essential compo
 
 **LoadBalancer:** This type automatically creates an external load balancer in the cloud provider's infrastructure (such as AWS, GCP, or Azure). The service is exposed with a public IP, making it accessible from outside the cluster. It is ideal for exposing services directly to the internet.
 
-Why are we not using LoadBalancer?
+<ins>Why are we not using LoadBalancer?</ins>
 
 **Cost and Complexity:** Using a LoadBalancer in a cloud environment like AWS can incur additional costs because it provisions an external load balancer in the cloud provider's infrastructure.
 
@@ -59,11 +59,11 @@ Why are we not using LoadBalancer?
 -----------------------------------------------------------------------------------------------------
 ## Part 3 <a name="p3"></a>
 
-1. How does SSL/TLS termination work with an Ingress Controller, and can I configure it for different services?
+1. <ins> How does SSL/TLS termination work with an Ingress Controller, and can I configure it for different services?</ins>
  SSL/TLS termination with an Ingress Controller allows the controller to handle HTTPS traffic by decrypting it before passing it to the backend services. You configure SSL termination by specifying TLS certificates in the Ingress manifest.
  Multiple services can have separate SSL configurations by defining different hostnames and associating each with its own TLS certificate within the same Ingress resource. This allows for secure communication without exposing certificates directly to the services.
 
-2. What are the best practices for scaling an Ingress Controller in a large Kubernetes deployment?
+2. <ins>What are the best practices for scaling an Ingress Controller in a large Kubernetes deployment?</ins>
 Best practices for scaling an Ingress Controller include:
 - Deploying the Ingress Controller as a DaemonSet to ensure it runs on every node and scales automatically with the cluster.
 - Using Horizontal Pod Autoscalers (HPA) to scale the number of Ingress Controller replicas based on CPU or memory usage.
@@ -71,11 +71,11 @@ Best practices for scaling an Ingress Controller include:
 - Configuring resource limits and requests appropriately to prevent bottlenecks.
 - Utilizing advanced caching mechanisms and optimizing timeouts to handle high traffic.
 
-3. How do readiness and liveness probes interact with Ingress Controllers in Kubernetes?
+3. <ins>How do readiness and liveness probes interact with Ingress Controllers in Kubernetes?</ins>
 Readiness probes help ensure that a Pod is ready to receive traffic. An Ingress Controller will only route traffic to Pods that have passed their readiness checks. Liveness probes ensure that a Pod is healthy and operational.
 If a liveness probe fails, Kubernetes restarts the Pod. Ingress Controllers rely on these probes to decide which Pods to route traffic to, ensuring that only healthy and ready Pods receive requests.
 
-4. What are some common performance bottlenecks when using Ingress Controllers in production?
+4. <ins>What are some common performance bottlenecks when using Ingress Controllers in production?</ins>
 Common performance bottlenecks with Ingress Controllers include:
 - Overloaded Ingress Controller Pods due to insufficient resources or too few replicas.
 - Inefficient routing rules or complex regex rules that slow down request processing.
@@ -83,7 +83,7 @@ Common performance bottlenecks with Ingress Controllers include:
 - Limited network bandwidth or high latency between nodes and the Ingress Controller.
 - Lack of caching or improper timeouts leading to increased load on backend services.
 
-5. How do I secure my Ingress resources and Ingress Controllers against potential vulnerabilities or attacks?
+5.<ins> How do I secure my Ingress resources and Ingress Controllers against potential vulnerabilities or attacks?</ins>
 To secure Ingress resources and Ingress Controllers:
 - Use TLS/SSL certificates for HTTPS communication and enable strong cipher suites.
 - Implement Web Application Firewall (WAF) rules to filter malicious traffic.
