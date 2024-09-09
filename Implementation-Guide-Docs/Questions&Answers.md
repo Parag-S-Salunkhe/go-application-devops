@@ -60,10 +60,12 @@ A distroless image is a minimal Docker image containing only the essential compo
 ## Part 3 <a name="p3"></a>
 
 1. <ins> How does SSL/TLS termination work with an Ingress Controller, and can I configure it for different services?</ins>
+
  SSL/TLS termination with an Ingress Controller allows the controller to handle HTTPS traffic by decrypting it before passing it to the backend services. You configure SSL termination by specifying TLS certificates in the Ingress manifest.
  Multiple services can have separate SSL configurations by defining different hostnames and associating each with its own TLS certificate within the same Ingress resource. This allows for secure communication without exposing certificates directly to the services.
 
 2. <ins>What are the best practices for scaling an Ingress Controller in a large Kubernetes deployment?</ins>
+
 Best practices for scaling an Ingress Controller include:
 - Deploying the Ingress Controller as a DaemonSet to ensure it runs on every node and scales automatically with the cluster.
 - Using Horizontal Pod Autoscalers (HPA) to scale the number of Ingress Controller replicas based on CPU or memory usage.
@@ -72,10 +74,12 @@ Best practices for scaling an Ingress Controller include:
 - Utilizing advanced caching mechanisms and optimizing timeouts to handle high traffic.
 
 3. <ins>How do readiness and liveness probes interact with Ingress Controllers in Kubernetes?</ins>
+
 Readiness probes help ensure that a Pod is ready to receive traffic. An Ingress Controller will only route traffic to Pods that have passed their readiness checks. Liveness probes ensure that a Pod is healthy and operational.
 If a liveness probe fails, Kubernetes restarts the Pod. Ingress Controllers rely on these probes to decide which Pods to route traffic to, ensuring that only healthy and ready Pods receive requests.
 
 4. <ins>What are some common performance bottlenecks when using Ingress Controllers in production?</ins>
+
 Common performance bottlenecks with Ingress Controllers include:
 - Overloaded Ingress Controller Pods due to insufficient resources or too few replicas.
 - Inefficient routing rules or complex regex rules that slow down request processing.
@@ -84,6 +88,7 @@ Common performance bottlenecks with Ingress Controllers include:
 - Lack of caching or improper timeouts leading to increased load on backend services.
 
 5.<ins> How do I secure my Ingress resources and Ingress Controllers against potential vulnerabilities or attacks?</ins>
+
 To secure Ingress resources and Ingress Controllers:
 - Use TLS/SSL certificates for HTTPS communication and enable strong cipher suites.
 - Implement Web Application Firewall (WAF) rules to filter malicious traffic.
@@ -95,22 +100,58 @@ To secure Ingress resources and Ingress Controllers:
 -------------------------------------------------------------------------------------------------
 ## Part 4 <a name="p4"></a>
 
-1.<ins> What is Helm, and how does it help with Kubernetes deployments?</ins>
+1. <ins> What is Helm, and how does it help with Kubernetes deployments?</ins>
+
 Helm is a package manager for Kubernetes that simplifies the deployment, management, and scaling of applications. It uses "charts," which are packages of pre-configured Kubernetes resources. 
 Helm helps by providing a consistent way to deploy applications, manage configuration through parameterized values files, and handle updates and rollbacks. It also offers templating features that make it easier to manage complex Kubernetes configurations.
 
 2. <ins>How do Helm charts handle versioning, and how can we manage different environments (e.g., dev, prod) using the same chart?</ins>
+
 Helm charts handle versioning through the Chart.yaml file, where you can specify the chart version. For managing different environments,
 Helm allows you to use values files (values.yaml) to provide environment-specific configurations. You can create separate values files for each environment (e.g., values-dev.yaml, values-prod.yaml) and specify the appropriate file during deployment using the -f flag.
 
-4. <ins>What are some common challenges or pitfalls to watch out for when using Helm in production environments?</ins>
+3. <ins>What are some common challenges or pitfalls to watch out for when using Helm in production environments?</ins>
+
 Common challenges include managing chart dependencies, ensuring consistent values across environments, and dealing with complex templating issues.
 Additionally, Helm’s release management can be complex, especially with large-scale deployments.
 It’s important to thoroughly test Helm charts in staging environments before deploying to production and to keep Helm and its dependencies updated to mitigate security vulnerabilities.
 
-6. <ins>How do Helm rollbacks work, and are there any limitations or risks associated with them?</ins>
+4. <ins>How do Helm rollbacks work, and are there any limitations or risks associated with them?</ins>
+
 Helm rollbacks allow you to revert to a previous release version if the current deployment has issues. This is done by tracking the release history and using the helm rollback command.
 Limitations include the potential for incomplete rollbacks if resources have changed significantly between versions. Rollbacks may not always fully revert changes in custom resources or external dependencies, so thorough testing is essential
+
+5. <ins> Why would you use helm for rollback if you have github?</ins>
+
+- Granular Control Over Deployments:
+
+Helm Rollbacks: Helm keeps track of deployment history and allows you to roll back to previous versions of your application directly within the Kubernetes cluster. This means you can revert to a known good state if something goes wrong after a deployment.
+
+GitHub Version Control: GitHub tracks changes in your code and configuration but doesn't handle the state of deployed applications. Rollbacks in GitHub involve reverting commits, which requires redeploying the previous version manually.
+
+- Deployment State Management:
+  
+Helm: Helm manages the state of your deployed applications. When you roll back with Helm, it reverts the actual Kubernetes resources to their previous state.
+
+GitHub: GitHub manages code and configuration versions but doesn’t interact with the live state of your Kubernetes cluster. Reverting in GitHub doesn’t directly affect the deployed application until you manually redeploy.
+
+- Simplified Rollback Process:
+  
+Helm Rollbacks: Helm provides a straightforward command (helm rollback) to revert to previous releases. It handles the complexities of updating or reverting Kubernetes resources automatically.
+
+GitHub Rollbacks: Rollbacks in GitHub require manual intervention, such as checking out previous commits and applying changes, which then need to be redeployed using another tool or script.
+
+- Consistent Application State:
+  
+Helm: Helm ensures that the entire set of Kubernetes resources is rolled back to a previous state, maintaining consistency across deployments.
+
+GitHub: Rolling back code in GitHub requires additional steps to ensure that the application’s state in the cluster matches the reverted code.
+
+- Integration with CI/CD Pipelines:
+  
+Helm: Helm integrates well with CI/CD pipelines to automate rollbacks based on deployment outcomes. This can be triggered automatically when a deployment fails.
+
+GitHub: While GitHub Actions or other CI/CD tools can manage deployments, Helm directly controls the Kubernetes deployment state, providing a more integrated rollback solution.
 
 --------------------------------------------------------------------------------------------------
 ## Part 5 <a name="p5"></a>
