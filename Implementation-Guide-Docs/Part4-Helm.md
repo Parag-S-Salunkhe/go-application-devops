@@ -6,6 +6,8 @@ create chart -> delete char dir -> delete files in tempelate -> copy manifests t
 
 in deployments change img tag  from parag2608/repo:v1 to parag2608/repo:{{ Values.image.tag}} , this helps us dynamically update images after CI CD has been run.
 
+why 'V' is uppercase? because it is a predifined object, Values recognizes values.yml by default
+
 update values.yaml to what it is now. 
 
 ```shell
