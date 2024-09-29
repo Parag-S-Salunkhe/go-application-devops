@@ -156,6 +156,25 @@ GitHub: While GitHub Actions or other CI/CD tools can manage deployments, Helm d
 --------------------------------------------------------------------------------------------------
 ## Part 5 <a name="p5"></a>
 
+1. <ins> After each stage what happens to runner and why?</ins>
+
+- Runner Lifecycle:
+  
+Resource Management: After completing the steps in a job, the runner will clean up any temporary files or resources that were created during that job. This helps ensure that no leftover artifacts interfere with subsequent jobs or workflows.
+
+Job Completion: The runner remains active only as long as the job is running. Once all steps of the job are complete, the runner either shuts down (in the case of GitHub-hosted runners) or is returned to the pool of available runners (for self-hosted runners).
+
+- Security and Isolation:
+  
+Clean Slate: When using GitHub-hosted runners, they are automatically destroyed after the workflow finishes. This is done for security reasons, ensuring that sensitive information (like secrets or credentials) is not left behind and that each workflow starts in a consistent environment.
+
+Isolation: Each job runs in its own environment, so any changes or installations made during one job do not affect others. This isolation helps to prevent potential issues that could arise from one job’s environment interfering with another.
+
+- Logs and Artifacts:
+  
+Logs: At the end of each job, the logs generated during its execution are retained for review. This is useful for debugging and understanding the workflow's execution.
+
+Artifacts: If the job is configured to save artifacts (files or data), those will be stored in GitHub for later retrieval, even after the runner is cleaned up.
 
 ------------------------------------------------------------------------------------------------
 ## Part 6 <a name="p6"></a>
