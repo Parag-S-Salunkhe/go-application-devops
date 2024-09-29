@@ -1,13 +1,13 @@
 # CICD using GitHub actions
-
-name: CI/CD
-
 # Exclude the workflow to run on changes to the helm chart
+name: CI/CD # you can name anything , doesnt need to match workflow file name
+
+
 on:
   push:
-    branches:
+    branches:  # action push will take on main branch
       - main
-    paths-ignore:
+    paths-ignore:  # if push is made to these files CICD pipline wont be built
       - 'helm/**'
       - 'k8s/**'
       - 'README.md'
@@ -16,40 +16,40 @@ on:
 
 jobs:
 
-  build:
-    runs-on: ubuntu-latest
+  build: # Job 1 name
+    runs-on: ubuntu-latest # the runner / the VM environment 
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Set up Go 1.22
-      uses: actions/setup-go@v2
+    - name: Checkout repository  
+      uses: actions/checkout@v4  # prebuilt actions available on github action marketplace, runners wouldnt access to source code
+                                 # pulls code from repo into virtual env                                                                 
+    - name: Set up Go 1.22 
+      uses: actions/setup-go@v2 # sets up go environment 
       with:
-        go-version: 1.22
+        go-version: 1.22 # installs that version of go
 
     - name: Build
-      run: go build -o go-web-app
+      run: go build -o go-web-app 
 
     - name: Test
-      run: go test ./...
+      run: go test ./...  # it looks for test files and automatically detected, by default it looks for suffix '*_test.go'
   
   code-quality:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4 
 
     - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v6
+      uses: golangci/golangci-lint-action@v6  # lint - means checking for formatting errors, makes code maintanable and consistent
       with:
         version: v1.56.2
   
   push:
     runs-on: ubuntu-latest
 
-    needs: build
+    needs: build # this job depends on the job 'build'
 
     steps:
     - name: Checkout repository
@@ -62,32 +62,32 @@ jobs:
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}  # set secrets in github secrets
 
     - name: Build and Push action
       uses: docker/build-push-action@v6
       with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
+        context: .  # root directory
+        file: ./Dockerfile 
+        push: true  # true means it pushes to the image to docker hub, set false so you can test images before pushing.
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}  #github runID is unique identifier which we are using it for tagging, its in built in Github Actions variable
 
   update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
 
-    needs: push
+    needs: push # depends on job 'push'
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        token: ${{ secrets.TOKEN }}
+        token: ${{ secrets.TOKEN }}  # github token. you need it to commit and push
 
-    - name: Update tag in Helm chart
+    - name: Update tag in Helm chart  # changes dockaer image tag dynamically in values.yml
       run: |
-        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
+        sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml  
 
-    - name: Commit and push changes
+    - name: Commit and push changes 
       run: |
         git config --global user.email "aparagsalunkhe27@gmail.com"
         git config --global user.name "Parag-S-Salunkhe"
