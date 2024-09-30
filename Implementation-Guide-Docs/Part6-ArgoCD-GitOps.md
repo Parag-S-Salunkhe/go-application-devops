@@ -22,3 +22,6 @@ kubectl patch svc argocd-server -n argocd -p '{\"spec\": {\"type\": \"LoadBalanc
 
 ```bash
 kubectl get svc argocd-server
+```
+
+![ArgoUI](static/images/argoCD.png)
