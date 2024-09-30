@@ -22,7 +22,7 @@ job name
 
 𝗦𝘁𝗲𝗽𝘀: Individual tasks within a job. These can include actions from the marketplace or shell commands.
 
-Jobs in GitHub Actions Workflow for this project -
+<ins>Jobs in GitHub Actions Workflow for this project - </ins>
 
 𝗟𝗶𝗻𝘁 𝗝𝗼𝗯 - Ensure code quality and adherence to standards.
 
